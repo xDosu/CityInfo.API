@@ -40,22 +40,22 @@ namespace CityInfo.API
                     {
                         new PointOfInterestDto()
                         {
-                            Id = 1,
-                            Name = "La Piedra Movediza",
-                            Description = "Una piedra gigante"
+                            Id = 3,
+                            Name = "Municipio de Azul",
+                            Description = "Donde labura el intendente."
                         }
                     }
                 },
                 new CityDto()
                 {
                     Id = 3,
-                    Name = "Municipio de Azul",
-                    Description = "Donde labura el intendente.",
+                    Name = "General Piran",
+                    Description = "MDQ Team.",
                     PointsOfInterest = new List<PointOfInterestDto>()
                     {
                         new PointOfInterestDto()
                         {
-                            Id = 1,
+                            Id = 4,
                             Name = "Campo Del Pino",
                             Description = "Donde se hacen los mejores chacinados."
                         }
