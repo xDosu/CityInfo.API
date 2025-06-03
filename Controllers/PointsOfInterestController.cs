@@ -142,6 +142,11 @@ namespace CityInfo.API.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (!TryValidateModel(pointOfInterestToUpdate))
+            {
+                return BadRequest(ModelState);   
+            }
+
             pointOfInterestToUpdate.Name = pointOfInterestToPatch.Name;
             pointOfInterestToUpdate.Description = pointOfInterestToPatch.Description;
             
