@@ -3,14 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CityInfo.API.Controllers
 {
-    [ApiController]
     [Route("api/cities")]
+    [ApiController]
     public class CitiesController : ControllerBase
     {
+        private readonly CitiesDataStore _citiesDataStore;
+
+        public CitiesController(CitiesDataStore citiesDataStore)
+        {
+            _citiesDataStore = citiesDataStore ??
+                throw new ArgumentNullException(nameof(citiesDataStore));
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<CityDto>> GetCities()
         {
-            var citiesToReturn = CitiesDataStore.Current.Cities;
+            var citiesToReturn = _citiesDataStore.Cities;
             
             return Ok(citiesToReturn);
         }
@@ -18,7 +26,7 @@ namespace CityInfo.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<CityDto> GetCity(int id)
         {
-            var cityToReturn = CitiesDataStore.Current.Cities
+            var cityToReturn = _citiesDataStore.Cities
                 .FirstOrDefault(c => c.Id == id);
 
             if (cityToReturn == null)
