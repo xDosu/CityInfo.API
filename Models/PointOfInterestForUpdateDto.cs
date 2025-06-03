@@ -5,7 +5,6 @@ namespace CityInfo.API.Models
     public class PointOfInterestForUpdateDto
     {
         [Required(ErrorMessage = "You should provide a name value.")]
-        public int Id { get; set; }
         [MaxLength(50)]
         public string Name { get; set; } = string.Empty;
         [MaxLength(200)]
